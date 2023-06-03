@@ -28,4 +28,12 @@ yargs.command({
 })
 
 
+yargs.command({
+    command: "list",
+    describe:"list all guest",
+    handler:function(){
+        req.list_x()
+    }
+})
+
 yargs.parse()

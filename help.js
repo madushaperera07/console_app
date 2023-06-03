@@ -36,7 +36,16 @@ const dataLoad = () =>{
     }
 }
 
+const listApp = ()=>{
+    console.log(chalk.yellow("Data List"))
+    const dataset = dataLoad();
+    dataset.forEach(element => {
+        console.log(element)
+    });
+}
+
 
 module.exports = {
-    add_x:addApp
+    add_x:addApp,
+    list_x:listApp
 }
