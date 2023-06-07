@@ -8,3 +8,9 @@ example
 
 how to list data
 ((node app.js list))
+
+how to read data
+((node app.js read --id=id))
+
+example
+((node app.js read --id=3))
