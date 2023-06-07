@@ -36,4 +36,19 @@ yargs.command({
     }
 })
 
+yargs.command({
+    command: "read",
+    describe:"read a guest",
+    builder:{
+        id:{
+            describe:"ID",
+            demandOption:true,
+            type: yargs.number
+        }
+    },
+    handler:function(argv){
+        req.read_x(argv.id)
+    }
+})
+
 yargs.parse()

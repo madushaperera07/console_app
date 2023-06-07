@@ -44,8 +44,24 @@ const listApp = ()=>{
     });
 }
 
+const readApp = (id)=>{
+    const dataset = dataLoad();
+    const findData = dataset.find((findData) =>{
+        return findData.id === id;
+    })
+
+    if(findData){
+        console.log(chalk.white("Read data"))
+        console.log(findData)
+    }else{
+        console.log(chalk.white.inverse(`No Record Found ${id}`))
+    }
+    
+}
+
 
 module.exports = {
     add_x:addApp,
-    list_x:listApp
+    list_x:listApp,
+    read_x:readApp,
 }
