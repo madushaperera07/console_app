@@ -6,7 +6,6 @@ const fs = require('fs');
 const addApp = (name, age ,contact)=>{
                 const dataset = dataLoad();
                 const length = dataset.length;
-                console.log(length)
 
                 let id = length + 1;
                 
@@ -59,9 +58,24 @@ const readApp = (id)=>{
     
 }
 
+const deleteApp = (id)=>{
+    const dataset = dataLoad();
+    const newdataset = dataset.filter((newdataset)=>{
+        return newdataset.id!== id
+    })
+
+    if( dataset.length > newdataset.length){
+        saveData(newdataset)
+        console.log(chalk.red("Delete" , id))
+    }else{
+        console.log(`No Record Found ${id}`)
+    }
+}
+
 
 module.exports = {
     add_x:addApp,
     list_x:listApp,
     read_x:readApp,
+    delete_x:deleteApp
 }

@@ -51,4 +51,19 @@ yargs.command({
     }
 })
 
+yargs.command({
+    command: "delete",
+    describe:"delete a guest",
+    builder:{
+        id:{
+            describe:"ID",
+            demandOption:true,
+            type: yargs.number
+        }
+    },
+    handler:function(argv){
+        req.delete_x(argv.id)
+    }
+})
+
 yargs.parse()
