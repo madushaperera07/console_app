@@ -14,3 +14,7 @@ how to read data
 
 example
 ((node app.js read --id=3))
+
+
+how to delete data
+((node app.js delete --id=id))
