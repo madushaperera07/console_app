@@ -11,9 +11,9 @@ const addApp = (name, age ,contact)=>{
                 
                 dataset.push({
                 id,
-                Name : name,
-                Age : age,
-                Contact : contact
+                name,
+                age,
+                contact
             });
             saveData(dataset);
 
@@ -72,10 +72,30 @@ const deleteApp = (id)=>{
     }
 }
 
+const updateApp = (id,name, age ,contact)=>{
+    const dataset = dataLoad()
+    const newdataset = dataset.findIndex((newset)=>{
+        return newset.id===id
+    })
+    if(newdataset!=-1){
+        const newset = dataset[newdataset]
+        newset.name = name ? name:newset.name;
+        newset.age = age ? age:newset.age;
+        newset.contact = contact ? contact:newset.contact;
+        console.log(chalk.blue("Update",id))
+        saveData(dataset)
+        console.log(newset)
+    }else{
+        console.log(`No Record Found ${id}`)
+    }
+}
+
+
 
 module.exports = {
     add_x:addApp,
     list_x:listApp,
     read_x:readApp,
-    delete_x:deleteApp
+    delete_x:deleteApp,
+    update_x:updateApp
 }

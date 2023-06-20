@@ -66,4 +66,31 @@ yargs.command({
     }
 })
 
+yargs.command({
+    command: "update",
+    describe:"To update a guest",
+    builder:{
+            id:{
+            describe:"ID",
+            demandOption:true,
+            type: yargs.number
+        },
+            name:{
+            describe:"Name",
+            type:"string"
+        },
+            age:{
+            describe:"Age",
+            type : yargs.number
+        },
+            contact:{
+            describe:"Contact No",
+            type: yargs.number
+        }
+    },
+    handler:function(argv){
+        req.update_x(argv.id, argv.name , argv.age , argv.contact)
+    }
+})
+
 yargs.parse()
